@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <h2 class="text-center">Crear un nuevo director</h2>
+  <form [formGroup]="directorForm" (ngSubmit)="enviarDatos()">
+    <!-- Nombre -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" class="form-control" formControlName="name" placeholder="Nombre del director"/>
+      <div *ngIf="directorForm.get('name')?.errors?.required">
+        El nombre es obligatorio.
+      </div>
+    </div>
+    <!-- Foto -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="foto">Foto (URL)</label>
+      <input id="foto" type="url" class="form-control" formControlName="photo" placeholder="URL de la foto del director"/>
+      <div *ngIf="directorForm.get('photo')?.errors?.required">
+        La URL de la foto es obligatoria.
+      </div>
+      <div *ngIf="directorForm.get('photo')?.errors?.invalidUrl">
+        La URL de la foto no es válida.
+      </div>
+    </div>
+    <!-- Biografía -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="biografia">Biografía</label>
+      <textarea id="biografia" class="form-control" formControlName="biography" rows="3"></textarea>
+    </div>
+    <!-- Fecha de Nacimiento -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="fechaNacimiento">Fecha de Nacimiento</label>
+      <input type="date" id="fechaNacimiento" class="form-control" formControlName="birthDate"/>
+    </div>
+    <!-- Nacionalidad -->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nacionalidad">Nacionalidad</label>
+      <input id="nacionalidad" class="form-control" formControlName="nationality" placeholder="Nacionalidad del director"/>
+    </div>
+    <!-- Botones -->
+    <button type="submit" class="btn btn-primary" [disabled]="!directorForm.valid">Crear</button>
+    <button type="button" class="btn btn-danger ml-3" (click)="cancelarCrearDirector()">Cancelar</button>
+  </form>
+</div>

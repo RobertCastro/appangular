@@ -9,9 +9,11 @@ import { ActorDetalleComponent } from './actors/actor-detalle/actor-detalle.comp
 import { GeneroCrearComponent } from './genero/genero-crear/genero-crear.component';
 import { PlataformaComponent } from './plataforma/plataforma.component';
 import { PlataformaAsociarPeliculaComponent } from './plataforma/plataforma-asociar-pelicula/plataforma-asociar-pelicula.component';
+import { DirectorCrearComponent } from './director/director-crear/director-crear.component';
 
 const routes: Routes = [
   { path: 'directores', component: DirectorListaComponent },
+  { path: 'directores/crear', component: DirectorCrearComponent },
   { path: 'directores/:id', component: DirectorDetalleComponent },
   { path: 'generos', component: GeneroListaComponent },
   { path: 'actores', component: ActorListaComponent },

@@ -9,6 +9,7 @@ import { GeneroDetalleModule } from './genero/genero-detalle/genero-detalle.modu
 import { GeneroCrearModule } from './genero/genero-crear/genero-crear.module';
 import { DirectorListaModule } from './director/director-lista/director-lista.module';
 import { DirectorDetalleModule } from './director/director-detalle/director-detalle.module';
+import { DirectorCrearModule } from './director/director-crear/director-crear.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -33,6 +34,7 @@ import { PlataformaAsociarPeliculaModule } from './plataforma/plataforma-asociar
     GeneroCrearModule,
     DirectorListaModule,
     DirectorDetalleModule,
+    DirectorCrearModule,
     ActorListaModule,
     PlataformaModule,
     PlataformaAsociarPeliculaModule
