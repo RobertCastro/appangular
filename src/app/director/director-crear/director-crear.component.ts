@@ -21,35 +21,22 @@ export class DirectorCrearComponent implements OnInit {
     if (this.directorForm.valid) {
       const datosDirector = {
         ...this.directorForm.value,
-        // Aquí puedes formatear los datos si es necesario
+        // Formatear de datos
       };
 
       this.directorService.crearDirector(datosDirector).subscribe({
         next: (res) => {
-          // Manejo de la respuesta exitosa
-        },
-        error: (err) => {
-          // Manejo de errores
-        }
-      });
-    } else {
-      // Manejo de formulario inválido
-    }
-  }
-
-  crearDirector(datosDirector: any) {
-    if (this.directorForm.valid) {
-      this.directorService.crearDirector(datosDirector).subscribe({
-        next: (res) => {
           // Manejo de la respuesta
           console.log('Director creado con éxito', res);
-          this.router.navigate(['/ruta-a-lista-directores']); // Ajusta esta ruta
+          this.router.navigate(['/directores']);
         },
         error: (err) => {
           // Manejo de errores
           console.error('Error al crear director', err);
         }
       });
+    } else {
+      // Manejo de formulario inválido
     }
   }
 
@@ -59,18 +46,18 @@ export class DirectorCrearComponent implements OnInit {
 
   ngOnInit() {
     this.directorForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]], // Solo letras y espacios
-      photo: ['', [Validators.required, this.urlValidator]], // Validador personalizado para URL
+      name: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      photo: ['', [Validators.required, this.urlValidator]],
       nationality: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
-      birthDate: ['', [Validators.required]], // Asegúrate de que sea una fecha válida
-      biography: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]] // Solo letras y espacios
+      birthDate: ['', [Validators.required]],
+      biography: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]]
     });
   }
 
-  // Validador personalizado para URL
   urlValidator(control: AbstractControl): ValidationErrors | null {
-    const urlPattern = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-\_]+\.[a-zA-Z]{2,5}$/;
+    const urlPattern = /^(http[s]?:\/\/)?([\w-]+(\.[\w-]+)+)([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$/;
     return urlPattern.test(control.value) ? null : { invalidUrl: true };
   }
+
   
 }
