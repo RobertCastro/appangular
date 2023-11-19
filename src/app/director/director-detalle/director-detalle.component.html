@@ -1,0 +1,26 @@
+<div class="container block">
+    <div *ngIf="!director" class="alert alert-danger" role="alert">
+        No se ha encontrado el director
+    </div>
+    <div class="row" *ngIf="director">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/directores" class="c-azul-oscuro" tabindex="0">Directores</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ director.name }}</li>
+              </ol>
+            </nav>
+          </div>
+        <div class="col-md-4">
+            <h1 class="name">{{ director.name }}</h1>
+            <img class="photo img-fluid" [src]="director.photo" [alt]="director.name">
+        </div>
+        <div class="col-md-8">
+            <h3 class="nationality">Nacionalidad: <p>{{ director.nationality }}</p></h3>
+            <h3 class="birthdate">Fecha de nacimiento: <p>{{ director.formattedBirthDate }}</p></h3>
+            <h3>Biografía: </h3>
+            <p class="biography">{{ director.biography }}</p>
+        </div>
+    </div>                                      
+</div>

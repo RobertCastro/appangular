@@ -1,0 +1,33 @@
+<br>
+<br>
+<div class="row">
+  <div class="col-3">
+    <nav id="sidebar" class="bg-light sidebar" tabindex="0">
+        <header class="sidebar-header">
+          <h3 class="sidebar-title">Géneros</h3>
+        </header>
+        <ul class="nav flex-column">
+          <li class="nav-item" *ngFor="let g of generos">
+            <a class="nav-link active" (click)="onSelected(g)" (keydown.enter)="onSelected(g)"tabindex="0">
+              {{g.type}}
+            </a>
+          </li>
+        </ul>
+    </nav>
+</div>
+  <div class="col-9">
+    <div *ngIf="selected">
+      <app-genero-detalle [generoSeleccionado]="generoSeleccionado"></app-genero-detalle>
+    </div>
+
+    
+    <div *ngIf="!selected">
+      <br>
+      <br>
+      <br>
+      
+      <a href="/generos/crear"> Crear Genero </a>
+
+    </div>
+  </div>
+</div>

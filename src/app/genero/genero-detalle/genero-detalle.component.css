@@ -1,0 +1,55 @@
+.card-container {
+  white-space: nowrap;      /* Prevent cards from wrapping to the next line */
+  width: 100%;             /* Ensure the container takes up the full width */
+  overflow-x: auto;        /* Add a horizontal scroll if cards exceed the container's width */
+  display: flex;           /* Allow cards to be displayed side by side */
+}
+
+.custom-card {
+  flex: 0 0 auto;          /* Don't allow cards to grow or shrink, they keep their defined width */
+  width: 300px;            /* Adjust the width as per your requirements */
+  margin-right: 10px;      /* Add some spacing between cards */
+}
+
+.custom-card .card-img-top {
+  max-width: 100%;         /* Ensure the image inside the card is responsive */
+}
+
+.custom-card .card-body {
+  padding: 10px;           /* Adjust the padding as needed */
+}
+
+.custom-card .card-title {
+  white-space: normal;     /* Allow the title to wrap to the next line */
+}
+
+
+.ratings{
+  margin-right:10px;
+}
+
+.ratings i{
+  
+  color:#cecece;
+  font-size:32px;
+}
+
+.rating-color{
+  color:#fbc634 !important;
+}
+
+.review-count{
+  font-weight:400;
+  margin-bottom:2px;
+  font-size:24px !important;
+}
+
+.small-ratings i{
+color:#cecece;   
+}
+
+.review-stat{
+  font-weight:300;
+  font-size:18px;
+  margin-bottom:2px;
+}

@@ -1,0 +1,7 @@
+#sidebar{
+    overflow-y: auto;
+}
+
+a.nav-link.active{
+    color: black;
+}

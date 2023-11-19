@@ -1,0 +1,33 @@
+<br>
+<br>
+<h3> Listado de actores</h3>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped" tabindex="0">
+        <thead>
+          <tr>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Nacionalidad</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let actor of actores">
+            <th>
+              <a><img [src]="actor.photo" [alt]="actor.name"></a>
+            </th>
+            <th>{{ actor.name }}</th>
+            <th>{{ actor.nationality }}</th>
+            <th>{{ actor.formattedBirthDate }}</th>
+            <th>
+              <button title="Ver {{actor.name}}" type="button" class="btn btn-warning" [routerLink]="['/actores', actor.id]"><fa-icon [icon]="faPlus"></fa-icon>Ver Detalle</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>      

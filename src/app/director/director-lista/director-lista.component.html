@@ -1,0 +1,44 @@
+<div class="container block">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" >Inicio</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Directores</li>
+        </ol>
+      </nav>
+    </div>
+  <div class="row">
+    <div class="col">
+      <h1 class="c-azul">Directores de cine</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped" tabindex="0">
+        <thead>
+          <tr>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Nacionalidad</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let director of directores">
+            <th>
+              <a title="Ver {{ director.name }}" [routerLink]="['/directores', director.id]"><img [src]="director.photo" [alt]="director.name"></a>
+            </th>
+            <th>{{ director.name }}</th>
+            <th>{{ director.nationality }}</th>
+            <th>{{ director.formattedBirthDate }}</th>
+            <th>
+              <button title="Ver {{ director.name }}" type="button" class="btn btn-warning" [routerLink]="['/directores', director.id]"><fa-icon [icon]="faPlus"></fa-icon>Ver más</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>      

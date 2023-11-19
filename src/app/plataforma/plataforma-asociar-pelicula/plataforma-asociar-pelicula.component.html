@@ -1,0 +1,51 @@
+<div class="container mt-4">
+  <h2 class="text-center">Asociar Pelicula a Plataforma</h2>
+  <form
+    [formGroup]="plataformaForm"
+    (ngSubmit)="!plataformaForm.invalid && asociarPlataformaPelicula(plataformaForm.value.plataforma, plataformaForm.value.pelicula)"
+  >
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="plataforma">Plataforma</label>
+      <input
+        novalidate
+        id="plataforma"
+        class="form-control"
+        formControlName="plataforma"
+        placeholder="Plataforma"
+      />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+             plataformaForm.get('plataforma')!.hasError('required') &&
+             plataformaForm.get('plataforma')!.touched
+           ">
+        Se requiere plataforma
+      </div>
+      
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="pelicula">Pelicula</label>
+      <input
+        novalidate
+        id="pelicula"
+        class="form-control"
+        formControlName="pelicula"
+        placeholder="Pelicula"
+      />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+             plataformaForm.get('pelicula')!.hasError('required') &&
+             plataformaForm.get('pelicula')!.touched
+           ">
+        Se requiere película
+      </div>
+      
+      
+    </div>
+    <button
+     type="submit"
+     class="btn btn-primary"
+     [disabled]="!plataformaForm.valid"
+   >
+     Asociar
+   </button>
+
+  </form>
+ </div>

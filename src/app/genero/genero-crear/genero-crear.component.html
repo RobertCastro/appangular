@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <h2 class="text-center">Crear un nuevo género</h2>
+  <form
+    [formGroup]="generoForm"
+    (ngSubmit)="!generoForm.invalid && crearGenero(generoForm.value)"
+  >
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="tipo">Tipo</label>
+      <input
+        novalidate
+        id="tipo"
+        class="form-control"
+        formControlName="tipo"
+        placeholder="Tipo/Nombre de género"
+      />
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+             generoForm.get('tipo')!.hasError('required') &&
+             generoForm.get('tipo')!.touched
+           ">
+        Se requiere tipo
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+             generoForm.get('tipo')!.hasError('maxlength') &&
+             generoForm.get('tipo')!.touched
+           ">
+        Nombre muy largo
+      </div>
+      
+    </div>
+    <button
+     type="submit"
+     class="btn btn-primary"
+     [disabled]="!generoForm.valid"
+   >
+     Crear
+   </button>
+   
+   <button
+     type="button"
+     class="btn btn-danger ml-3"
+    (click)="cancelarCrearGenero()"
+   >
+     Cancel
+   </button>
+
+  </form>
+ </div>

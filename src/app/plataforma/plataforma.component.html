@@ -1,0 +1,28 @@
+
+<br>
+<br>
+<br>
+<br>
+
+<app-plataforma-asociar-pelicula></app-plataforma-asociar-pelicula>
+
+<hr> <!-- Add horizontal line here -->
+
+
+
+
+<h3> Plataformas y Peliculas </h3>
+<ul>
+  <li class="nav-item" *ngFor="let p of plataformas">
+      {{p.name}}
+    
+    <ul>
+      <li *ngFor="let movie of p.movies">
+       
+        {{ movie.title }} 
+        
+      </li>
+    </ul>
+  </li>
+</ul>
+
