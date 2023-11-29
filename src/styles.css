@@ -106,7 +106,7 @@ button, .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  color: var(--color-texto);
+  color: var(--blanco);
   background-color: var(--color-boton);
   border: none;
   border-radius: 4px;
@@ -123,10 +123,18 @@ button:disabled, .btn:disabled {
   cursor: not-allowed;
   opacity: 0.6;
 }
+.btn-warning{
+  color: var(--azul-oscuro) !important;
+}
+.btn-warning:hover{
+  background-color: var(--azul-oscuro) !important;
+  color: var(--amarillo) !important;
+  border-color: var(--azul-oscuro) !important;
+}
 
 /* ===== MARGIN AND PADDING ===== */
 .block{
-  padding: 4% 0;
+  padding: 5% 0;
 }
 main{
   min-height: 95vh;
@@ -134,4 +142,44 @@ main{
 body, html{
   width: 100% !important;
   overflow-x: hidden;
+}
+.link-as-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: var(--blanco);
+  background-color: var(--color-boton);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  height: fit-content;
+}
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+  opacity: 0.65;
+  pointer-events: none;
+  background-color: var(--azul-oscuro);
+}
+
+.link-as-button:hover,
+.link-as-button:focus {
+  color: #fff;
+  background-color: var(--color-boton-hover);
+  border-color: var(--color-boton-hover);
+  text-decoration: none;
+}
+main input{
+  height: 60px;
+  border: 2px solid var(--turquesa) !important;
+  margin-bottom: 2rem;
+  font-size: 1.2em !important; 
+  color: var(--azul) !important;
+  font-weight: 500 !important;
+}
+main textarea{
+  border: 2px solid var(--turquesa) !important;
+  margin-bottom: 2rem;
+  font-size: 1.2em !important; 
+  color: var(--azul) !important;
+  font-weight: 500 !important;
 }

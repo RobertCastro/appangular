@@ -31,7 +31,6 @@ export class ActorListaComponent implements OnInit {
 
       for (let actor of this.actores) {
         actor.formattedBirthDate = moment(actor.birthDate).format('D [de] MMMM [de] YYYY');
-        console.log(actor.id);
       }
     });
   }

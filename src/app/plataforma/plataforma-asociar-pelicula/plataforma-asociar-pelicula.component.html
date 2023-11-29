@@ -1,17 +1,18 @@
-<div class="container mt-4">
-  <h2 class="text-center">Asociar Pelicula a Plataforma</h2>
+<div class="mt-4">
+  <h2 i18n >Asociar Pelicula a Plataforma</h2>
   <form
     [formGroup]="plataformaForm"
     (ngSubmit)="!plataformaForm.invalid && asociarPlataformaPelicula(plataformaForm.value.plataforma, plataformaForm.value.pelicula)"
   >
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="plataforma">Plataforma</label>
+    <div class="form-group mb-2">
+      <label i18n for="plataforma">Plataforma</label>
       <input
         novalidate
         id="plataforma"
+        data-test-id="inputsPlataforma"
         class="form-control"
         formControlName="plataforma"
-        placeholder="Plataforma"
+        placeholder="Plataforma/Platform"
       />
       <div class="alert alert-danger alert-dismissible fade show" *ngIf="
              plataformaForm.get('plataforma')!.hasError('required') &&
@@ -21,14 +22,15 @@
       </div>
       
     </div>
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="pelicula">Pelicula</label>
+    <div class="form-group mb-2">
+      <label i18n  for="pelicula">Pelicula</label>
       <input
         novalidate
         id="pelicula"
+        data-test-id="inputsPelicula"
         class="form-control"
         formControlName="pelicula"
-        placeholder="Pelicula"
+        placeholder="Pelicula/Movie"
       />
       <div class="alert alert-danger alert-dismissible fade show" *ngIf="
              plataformaForm.get('pelicula')!.hasError('required') &&
@@ -41,6 +43,7 @@
     </div>
     <button
      type="submit"
+     data-test-id="asociarPlataformaPelicula"
      class="btn btn-primary"
      [disabled]="!plataformaForm.valid"
    >

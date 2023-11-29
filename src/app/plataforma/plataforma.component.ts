@@ -9,6 +9,7 @@ import { PlataformaService } from './plataforma.service';
 export class PlataformaComponent implements OnInit {
 
   plataformas: Array<Plataforma> = [];
+  openAccordion: boolean[] = []
   constructor(private plataformaService: PlataformaService) { }
 
   getPlatforms() {

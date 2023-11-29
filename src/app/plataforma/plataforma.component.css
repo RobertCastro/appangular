@@ -1,0 +1,15 @@
+.accordion h2{
+    border: 0 !important;
+    background-color: transparent;
+}
+.accordion .accordion-item{
+    border: 0 !important;
+    background-color: transparent;
+}
+
+.accordion button{
+    background-color: var(--blanco);
+}
+.accordion button::after{
+    rotate: 180deg;
+}

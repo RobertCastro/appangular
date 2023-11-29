@@ -9,22 +9,28 @@ import { GeneroService } from '../genero.service';
 })
 export class GeneroListaComponent implements OnInit {
   
-  selected: Boolean=false;
-  generoSeleccionado!:Genero;
-
-  generos: Array<Genero>=[];
+  generoSeleccionado!: Genero;
+  generos: Array<Genero> = [];
+  selected = false
 
   constructor(private generoService: GeneroService) {}
-        
-  onSelected(genero: Genero):void{
+
+  onSelected(genero: Genero): void {
     this.selected=true;
-    this.generoSeleccionado=genero;
+    this.generoSeleccionado = genero;
+    this.generos.forEach((g) => g.active = false);
+    genero.active = true;
   }
 
-  getTypes() {
-    this.generoService.getGeneros().subscribe(generos => {
-      this.generos = generos;
-    });
+  getTypes(): void {
+    this.generoService.getGeneros().subscribe(
+      generos => {
+        this.generos = generos.map(g => ({ ...g, active: false, darPelis: () => [] }));
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   ngOnInit() {

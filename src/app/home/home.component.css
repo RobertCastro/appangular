@@ -1,0 +1,14 @@
+.carousel-section button{
+    background-color: transparent
+}
+.carousel-section button:hover{
+    background-color: transparent
+}
+.carousel-section h2{
+    font-size: 35px;
+    font-weight: 700;
+}
+.carousel-section p{
+    font-size: 20px;
+    font-weight: 500;
+}

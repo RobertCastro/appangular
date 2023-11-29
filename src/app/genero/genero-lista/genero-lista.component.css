@@ -5,3 +5,28 @@
 a.nav-link.active{
     color: black;
 }
+li
+{
+    margin-bottom: 10px;
+}
+li a{
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+}
+li a:hover {
+    color: var(--azul) !important;
+}
+
+.list-group-item.active {
+    
+    color: var(--bs-list-group-active-color);
+    background-color: var(--azul);
+    border-color: var(--bs-list-group-active-border-color);
+}
+.list-group-item.active a{
+    text-decoration: none;
+}	
+.list-group-item.active a:hover {
+    color: var(--blanco) !important;
+}

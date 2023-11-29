@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { GeneroDetalleModule } from './genero/genero-detalle/genero-detalle.modu
 import { GeneroCrearModule } from './genero/genero-crear/genero-crear.module';
 import { DirectorListaModule } from './director/director-lista/director-lista.module';
 import { DirectorDetalleModule } from './director/director-detalle/director-detalle.module';
+import { DirectorCrearModule } from './director/director-crear/director-crear.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
@@ -17,12 +18,20 @@ import { ActorDetalleComponent } from './actors/actor-detalle/actor-detalle.comp
 import { RouterModule } from '@angular/router';
 import { PlataformaModule } from './plataforma/plataforma.module';
 import { PlataformaAsociarPeliculaModule } from './plataforma/plataforma-asociar-pelicula/plataforma-asociar-pelicula.module';
+
+import { HttpErrorInterceptorService } from './interceptors/http-error-interceptor.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActorCrearComponent } from './actors/actor-crear/actor-crear.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [		
     AppComponent,
       NavbarComponent,
       FooterComponent,
-      HomeComponent
+      HomeComponent,
+      ActorCrearComponent
    ],
   imports: [
     BrowserModule,
@@ -33,11 +42,22 @@ import { PlataformaAsociarPeliculaModule } from './plataforma/plataforma-asociar
     GeneroCrearModule,
     DirectorListaModule,
     DirectorDetalleModule,
+    DirectorCrearModule,
     ActorListaModule,
     PlataformaModule,
-    PlataformaAsociarPeliculaModule
+    PlataformaAsociarPeliculaModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptorService,
+      multi: true
+    }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

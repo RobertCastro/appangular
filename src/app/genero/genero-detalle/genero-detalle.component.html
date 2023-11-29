@@ -1,15 +1,15 @@
 <div class="container" tabindex="0">
-  <h1>Detalle del género {{generoSeleccionado.type}}</h1> 
+  <h2>Detalle del género {{generoSeleccionado.type}}</h2> 
 </div>
 
 <div class="card-container" tabindex="0">
-  <div class="card custom-card" *ngFor="let movie of darPelisOrdenadas(generoSeleccionado)" tabindex="0">
+  <div class="card custom-card" *ngFor="let movie of darPelisOrdenadas(generoSeleccionado)" tabindex="0" data-test-id="detalle-genero-card">
     <img [src]="movie.poster" class="card-img-top" alt="Poster de la película {{ movie.title }}">
     <div class="card-body">
-      <h5 class="card-title">{{ movie.title }}</h5>
-      <p class="card-text">País: {{ movie.country }}</p>
-      <p class="card-text">Duración: {{ movie.duration }} horas</p>
-      <p class="card-text">Popularidad:
+      <h5 class="card-title" data-test-id="detalle-genero-card-title">{{ movie.title }}</h5>
+      <p i18n class="card-text" data-test-id="detalle-genero-card-text-pais">País: {{ movie.country }}</p>
+      <p i18n class="card-text" data-test-id="detalle-genero-card-text-duracion">Duración: {{ movie.duration }} horas</p>
+      <p i18n class="card-text" data-test-id="detalle-genero-card-text-popularidad">Popularidad:
         <span *ngFor="let i of [].constructor(movie.popularity)" >★</span>
         <span *ngFor="let i of [].constructor(5-movie.popularity)">☆</span>
       </p>

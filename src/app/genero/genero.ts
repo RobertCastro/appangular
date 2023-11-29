@@ -1,5 +1,6 @@
 export class Genero {
     type:string;
+    active: boolean = false;
     movies: Array<Movie> = [];
 
     public constructor(type:string, movies: Array<Movie>){

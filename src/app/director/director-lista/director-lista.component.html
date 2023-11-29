@@ -3,26 +3,29 @@
     <div class="col">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" >Inicio</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Directores</li>
+          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
+          <li i18n class="breadcrumb-item active" aria-current="page">Directores</li>
         </ol>
       </nav>
     </div>
-  <div class="row">
-    <div class="col">
-      <h1 class="c-azul">Directores de cine</h1>
+    <div class="row">
+      <div class="col">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+          <h1 class="c-azul">Directores de cine</h1>
+          <a title="Agregar director" [routerLink]="['/directores/crear']" class="link-as-button"> Crear director</a>
+        </div>
+      </div>
     </div>
-  </div>
   <div class="row">
     <div class="col">
       <table class="table table-striped" tabindex="0">
         <thead>
           <tr>
-            <th scope="col">Foto</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Nacionalidad</th>
-            <th scope="col">Fecha de Nacimiento</th>
-            <th scope="col">Acciones</th>
+            <th scope="col" i18n>Foto</th>
+            <th scope="col" i18n>Nombre</th>
+            <th scope="col" i18n>Nacionalidad</th>
+            <th scope="col" i18n>Fecha de Nacimiento</th>
+            <th scope="col" i18n>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -34,11 +37,11 @@
             <th>{{ director.nationality }}</th>
             <th>{{ director.formattedBirthDate }}</th>
             <th>
-              <button title="Ver {{ director.name }}" type="button" class="btn btn-warning" [routerLink]="['/directores', director.id]"><fa-icon [icon]="faPlus"></fa-icon>Ver más</button>
+              <button i18n title="Ver {{ director.name }}" type="button" class="btn btn-warning" [routerLink]="['/directores', director.id]" ><fa-icon [icon]="faPlus"></fa-icon>Ver más</button>
             </th>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>      
+</div>

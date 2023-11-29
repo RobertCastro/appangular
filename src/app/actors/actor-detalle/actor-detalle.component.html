@@ -1,14 +1,29 @@
-<div class="container">
-  <div class="row">
-      <div class="col-md-4">
-          <h1 id="actor-name">{{ actorDetail.name }}</h1>
-          <img id="actor-photo" [src]="actorDetail.photo" [alt]="actorDetail.name">
-      </div>
-      <div class="col-md-8">
-          <h3>Nacionalidad: <p id="actor-nationality">{{ actorDetail.nationality }}</p></h3>
-          <h3>Fecha de nacimiento: <p  id="actor-birthdate">{{ actorDetail.formattedBirthDate }}</p></h3>
-          <h3>Biografía: </h3>
-          <p id="actor-biography">{{ actorDetail.biography }}</p>
-      </div>
-  </div>
+<div class="container block">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
+                <li class="breadcrumb-item"> <a href="/actores" class="c-azul-oscuro" tabindex="0" i18n>Actores</a></li>
+                <li i18n class="breadcrumb-item active" aria-current="page">{{ actorDetail.name }}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h1 id="actor-name">{{ actorDetail.name }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <img id="actor-photo" [src]="actorDetail.photo" [alt]="actorDetail.name">
+        </div>
+        <div class="col-md-8">
+            <h3 i18n>Nacionalidad: <p id="actor-nationality">{{ actorDetail.nationality }}</p>
+            </h3>
+            <h3 i18n>Fecha de nacimiento: <p id="actor-birthdate">{{ actorDetail.formattedBirthDate }}</p>
+            </h3>
+            <h3 i18n>Biografía: </h3>
+            <p id="actor-biography">{{ actorDetail.biography }}</p>
+        </div>
+    </div>
 </div>

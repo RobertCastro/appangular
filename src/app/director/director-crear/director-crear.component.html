@@ -1,0 +1,77 @@
+<div class="container block">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
+          <li class="breadcrumb-item"><a href="/directores" class="c-azul-oscuro" tabindex="0" i18n>Directores</a></li>
+          <li class="breadcrumb-item active" aria-current="page" i18n>Crear director</li>
+        </ol>
+      </nav>
+    </div>
+  <div class="row">
+    <div class="col">
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <h1 i18n class="c-azul">Crear un nuevo director</h1>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="directorForm" (ngSubmit)="enviarDatos()">
+    <!-- Nombre -->
+    <div class="form-group  mb-2">
+      <label i18n for="nombre">Nombre</label>
+      <input id="nombre" class="form-control" formControlName="name" placeholder="Nombre del director"/>
+      <div i18n *ngIf="directorForm.get('name')!.touched && directorForm.get('name')!.errors?.required">
+        El nombre es obligatorio.
+      </div>
+      <div i18n *ngIf="directorForm.get('name')!.touched && directorForm.get('name')!.errors?.pattern">
+        Solo se permiten letras y espacios en el nombre.
+      </div>  
+    </div>
+    <!-- Foto -->
+    <div class="form-group  mb-2">
+      <label i18n for="foto">Foto (URL)</label>
+      <input id="foto" type="url" class="form-control" formControlName="photo" placeholder="URL de la foto del director"/>
+      <div i18n *ngIf="directorForm.get('photo')!.touched && directorForm.get('photo')!.errors?.required">
+        La URL de la foto es obligatoria.
+      </div>
+      <div i18n *ngIf="directorForm.get('photo')!.touched && directorForm.get('photo')!.errors?.invalidUrl">
+        La URL de la foto no es válida.
+      </div>      
+    </div>
+    <!-- Biografía -->
+    <div class="form-group  mb-2">
+      <label i18n for="biografia">Biografía</label>
+      <textarea id="biografia" class="form-control" formControlName="biography" rows="3"></textarea>
+      <div i18n *ngIf="directorForm.get('biography')!.touched && directorForm.get('biography')!.errors?.required">
+        La biografía es obligatoria.
+      </div>
+      <div i18n *ngIf="directorForm.get('biography')!.touched && directorForm.get('biography')!.errors?.pattern">
+        Solo se permiten letras y espacios en la biografía.
+      </div>
+      
+    </div>
+    <!-- Fecha de Nacimiento -->
+    <div class="form-group  mb-2">
+      <label i18n for="fechaNacimiento">Fecha de Nacimiento</label>
+      <input type="date" id="fechaNacimiento" class="form-control" formControlName="birthDate"/>
+      <div i18n *ngIf="directorForm.get('birthDate')!.touched && directorForm.get('birthDate')!.errors?.required">
+        La fecha de nacimiento es obligatoria.
+      </div>
+    </div>
+    <!-- Nacionalidad -->
+    <div class="form-group  mb-2">
+      <label i18n for="nacionalidad">Nacionalidad</label>
+      <input id="nacionalidad" class="form-control" formControlName="nationality" placeholder="Nacionalidad del director"/>
+      <div i18n *ngIf="directorForm.get('nationality')!.touched && directorForm.get('nationality')!.errors?.required">
+        La nacionalidad es obligatoria.
+      </div>
+      <div i18n *ngIf="directorForm.get('nationality')!.touched && directorForm.get('nationality')!.errors?.pattern">
+        Solo se permiten letras y espacios en la nacionalidad.
+      </div>
+    </div>
+    <!-- Botones -->
+    <button i18n type="submit" class="btn btn-primary mt-3" [disabled]="!directorForm.valid">Crear</button>
+    <button i18n type="button" class="btn btn-danger text-white mx-4 mt-3" (click)="cancelarCrearDirector()">Cancelar</button>
+  </form>
+</div>

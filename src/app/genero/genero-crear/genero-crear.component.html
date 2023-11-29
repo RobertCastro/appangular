@@ -1,47 +1,46 @@
-<div class="container mt-4">
-  <h2 class="text-center">Crear un nuevo género</h2>
-  <form
-    [formGroup]="generoForm"
-    (ngSubmit)="!generoForm.invalid && crearGenero(generoForm.value)"
-  >
-    <div class="form-group mx-sm-3 mb-2">
-      <label for="tipo">Tipo</label>
-      <input
-        novalidate
-        id="tipo"
-        class="form-control"
-        formControlName="tipo"
-        placeholder="Tipo/Nombre de género"
-      />
-      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
-             generoForm.get('tipo')!.hasError('required') &&
-             generoForm.get('tipo')!.touched
-           ">
-        Se requiere tipo
-      </div>
-      <div class="alert alert-danger alert-dismissible fade show" *ngIf="
-             generoForm.get('tipo')!.hasError('maxlength') &&
-             generoForm.get('tipo')!.touched
-           ">
-        Nombre muy largo
-      </div>
-      
+<div class="container block">
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
+          <li class="breadcrumb-item"> <a href="/generos" class="c-azul-oscuro" tabindex="0" i18n>Géneros</a></li>
+          <li i18n class="breadcrumb-item active" aria-current="page">Crear géneros</li>
+        </ol>
+      </nav>
     </div>
-    <button
-     type="submit"
-     class="btn btn-primary"
-     [disabled]="!generoForm.valid"
-   >
-     Crear
-   </button>
-   
-   <button
-     type="button"
-     class="btn btn-danger ml-3"
-    (click)="cancelarCrearGenero()"
-   >
-     Cancel
-   </button>
-
-  </form>
- </div>
+    <div class="col-12">
+      <h1 i18n>Crear un nuevo género</h1>
+      <form [formGroup]="generoForm" (ngSubmit)="!generoForm.invalid && crearGenero(generoForm.value)">
+        <div class="form-group mb-2">
+          <label i18n for="tipo">Tipo</label>
+          <input novalidate id="tipo" class="form-control" formControlName="tipo" placeholder="Tipo/Type"
+            data-test-id="crear-genero-input-tipo" />
+          <div i18n class="alert alert-danger alert-dismissible fade show" *ngIf="
+                 generoForm.get('tipo')!.hasError('required') &&
+                 generoForm.get('tipo')!.touched
+               ">
+            Se requiere tipo
+          </div>
+          <div i18n class="alert alert-danger alert-dismissible fade show" *ngIf="
+                 generoForm.get('tipo')!.hasError('maxlength') &&
+                 generoForm.get('tipo')!.touched
+               ">
+            Nombre muy largo
+          </div>
+    
+        </div>
+        <button i18n type="submit" data-test-id="crear-genero-button-crear" class="btn btn-primary"
+          [disabled]="!generoForm.valid">
+          Crear
+        </button>
+    
+        <button i18n type="button" data-test-id="crear-genero-button-cancelar" class="btn btn-danger mx-3"
+          (click)="cancelarCrearGenero()">
+          Cancelar
+        </button>
+    
+      </form>
+    </div>
+  </div>
+</div>

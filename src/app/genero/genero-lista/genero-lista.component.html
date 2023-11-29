@@ -1,33 +1,39 @@
-<br>
-<br>
-<div class="row">
-  <div class="col-3">
-    <nav id="sidebar" class="bg-light sidebar" tabindex="0">
-        <header class="sidebar-header">
-          <h3 class="sidebar-title">Géneros</h3>
-        </header>
-        <ul class="nav flex-column">
-          <li class="nav-item" *ngFor="let g of generos">
-            <a class="nav-link active" (click)="onSelected(g)" (keydown.enter)="onSelected(g)"tabindex="0">
-              {{g.type}}
-            </a>
-          </li>
-        </ul>
-    </nav>
-</div>
-  <div class="col-9">
-    <div *ngIf="selected">
-      <app-genero-detalle [generoSeleccionado]="generoSeleccionado"></app-genero-detalle>
+<div class="container block">
+  <div class="row">
+    <div class="col-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
+          <li i18n class="breadcrumb-item active" aria-current="page">Géneros</li>
+        </ol>
+      </nav>
     </div>
-
-    
-    <div *ngIf="!selected">
-      <br>
-      <br>
-      <br>
-      
-      <a href="/generos/crear"> Crear Genero </a>
-
+    <div class="row">
+      <div class="col">
+        <div class="d-flex flex-row justify-content-between align-items-center">
+          <h1 i18n class="c-azul">Géneros</h1>
+          <!-- <div *ngIf="!selected"> -->
+            <a i18n title="Agregar director" href="/generos/crear" data-test-id="boton-crear-genero" class="link-as-button">Crear género</a>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <nav id="sidebar" class="bg-light sidebar" tabindex="0">
+          <ul class="list-group">
+            <li class="list-group-item" (click)="onSelected(g)" [ngClass]="{'active': g === generoSeleccionado}" *ngFor="let g of generos" data-test-id="elemento-lista-genero">
+              <a class="nav-link"  (keydown.enter)="onSelected(g)"tabindex="0">
+                {{g.type}}
+              </a>
+            </li>
+          </ul>
+      </nav>
+    </div>
+    <div class="col-9">
+      <div *ngIf="selected">
+        <app-genero-detalle [generoSeleccionado]="generoSeleccionado"></app-genero-detalle>
+      </div>
     </div>
   </div>
 </div>
+

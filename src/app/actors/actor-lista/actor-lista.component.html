@@ -1,17 +1,32 @@
-<br>
-<br>
-<h3> Listado de actores</h3>
-<div class="container">
+<div class="container block">
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
+          <li i18n class="breadcrumb-item active" aria-current="page">Actores</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <h1 i18n class="c-azul">Listado de actores</h1>
+        <a title="Agregar director" [routerLink]="['/crear-actor']" class="link-as-button">Crear Actor</a>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col">
       <table class="table table-striped" tabindex="0">
         <thead>
           <tr>
-            <th scope="col">Foto</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Nacionalidad</th>
-            <th scope="col">Fecha de Nacimiento</th>
-            <th scope="col">Acciones</th>
+            <th i18n scope="col">Foto</th>
+            <th i18n scope="col">Nombre</th>
+            <th i18n scope="col">Nacionalidad</th>
+            <th i18n scope="col">Fecha de Nacimiento</th>
+            <th i18n scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +38,7 @@
             <th>{{ actor.nationality }}</th>
             <th>{{ actor.formattedBirthDate }}</th>
             <th>
-              <button title="Ver {{actor.name}}" type="button" class="btn btn-warning" [routerLink]="['/actores', actor.id]"><fa-icon [icon]="faPlus"></fa-icon>Ver Detalle</button>
+              <button i18n title="Ver {{actor.name}}" type="button" class="btn btn-warning" [routerLink]="['/actores', actor.id]"><fa-icon [icon]="faPlus"></fa-icon>Ver Detalle</button>
             </th>
           </tr>
         </tbody>
