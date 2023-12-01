@@ -1,0 +1,19 @@
+.listado-peliculas{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 4rem;
+}
+.card-body h4, .card-body p{
+    margin: 0;
+}
+.card-body a{
+    padding: 6px 10px;
+    margin: 5px 0;
+}
+.card-body .director{
+  display: flex;
+  flex-direction: column;
+}
+.card-body .director span{
+  margin: 0;
+}

@@ -19,8 +19,8 @@
     <div class="col-md-12">
       <h3 i18n>Plataformas y Peliculas</h3>
       <div class="accordion">
-        <div class="accordion-item" *ngFor="let p of plataformas; let i = index">
-          <h2 class="accordion-header" [attr.id]="'heading' + i">
+        <div class="accordion-item"  [attr.data-test-id]="'accordion-item-' + p.name" *ngFor="let p of plataformas; let i = index">
+          <h2 class="accordion-header" [attr.id]="'heading' + i" [attr.data-test-id]="'accordion-header-' + p.name">
             <button class="accordion-button" type="button" (click)='openAccordion[i] = !openAccordion[i]'
               data-bs-toggle="collapse" [attr.data-target]="'#collapse' + i" aria-expanded="true"
               [attr.aria-controls]="'collapse' + i">

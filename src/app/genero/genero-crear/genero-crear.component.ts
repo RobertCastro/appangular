@@ -32,6 +32,9 @@ export class GeneroCrearComponent implements OnInit {
       console.info("El genero fue creado: ", genero)
       this.generoForm.reset();
 
+      //al finalizar redirigir a la lista de generos
+      this.router.navigate(['/generos']);
+
       //refresh page
       //window.location.reload();
 
@@ -39,8 +42,7 @@ export class GeneroCrearComponent implements OnInit {
 
     })
 
-    //al finalizar redirigir a la lista de generos
-    this.router.navigate(['/generos']);
+    
 
   }
 
