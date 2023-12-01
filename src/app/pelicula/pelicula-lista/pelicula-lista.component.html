@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="listado-peliculas">
+      <div class="listado-peliculas mb-5">
         <div class="card" style="width: 18rem;" *ngFor="let pelicula of peliculas">
           <img src="{{ pelicula.poster }}" class="card-img-top" alt="...">
           <div class="card-body">
             <h4 class="card-title c-azul-oscuro">{{ pelicula.title }}</h4>
-            <p class="card-text c-turquesa">{{ pelicula.genre.type }}</p>
-            <a i18n href="#" class="bg-turquesa btn ">Ver película</a>
+            <p class="card-text c-turquesa"><strong>{{ pelicula.genre.type }}</strong></p>
+            <!-- <a i18n href="#" class="bg-turquesa btn ">Ver película</a> -->
             <div class="director">
               <span>{{ pelicula.director.name }}</span>
               <span>{{ pelicula.country }}</span>

@@ -23,7 +23,7 @@ export class DirectorListaComponent implements OnInit {
   }
         
   getTypes() {
-    this.directorListaService.getGeneros().subscribe(directores => {
+    this.directorListaService.getDirectores().subscribe(directores => {
       this.directores = directores;
 
       for (let director of this.directores) {

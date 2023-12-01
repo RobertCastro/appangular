@@ -11,6 +11,7 @@ import { PlataformaComponent } from './plataforma/plataforma.component';
 import { PlataformaAsociarPeliculaComponent } from './plataforma/plataforma-asociar-pelicula/plataforma-asociar-pelicula.component';
 import { ActorCrearComponent } from './actors/actor-crear/actor-crear.component';
 import { DirectorCrearComponent } from './director/director-crear/director-crear.component';
+import { ActorAsociarPeliculaComponent } from './actors/actor-pelicula/actor-pelicula.component';
 
 const routes: Routes = [
   { path: 'directores', component: DirectorListaComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'actores', component: ActorListaComponent },
   { path: 'plataformas', component: PlataformaComponent},
   { path: 'plataformas/asociarPelicula', component: PlataformaAsociarPeliculaComponent},
+  { path: 'actores/asociarpelicula', component: ActorAsociarPeliculaComponent},
   { path: 'actores/:id', component: ActorDetalleComponent },
   { path: 'crear-actor', component: ActorCrearComponent },
   { path: 'home',component: HomeComponent},

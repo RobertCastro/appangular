@@ -12,7 +12,7 @@ export class DirectorListaService {
   private apiUrl = environment.baseUrl + '/directors';
   constructor(private http:HttpClient) { }
 
-  getGeneros(): Observable<Director[]> {
+  getDirectores(): Observable<Director[]> {
     return this.http.get<Director[]>(this.apiUrl);
   }
 }

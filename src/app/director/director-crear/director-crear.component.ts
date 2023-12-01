@@ -50,7 +50,7 @@ export class DirectorCrearComponent implements OnInit {
       photo: ['', [Validators.required, this.urlValidator]],
       nationality: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
       birthDate: ['', [Validators.required]],
-      biography: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 ]*')]]
+      biography: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9 áéíóúÁÉÍÓÚñÑ]*')]]
     });
   }
 

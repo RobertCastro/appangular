@@ -21,10 +21,6 @@ export class PeliculaListaComponent implements OnInit {
   getTypes() {
     this.peliculaListaService.getPeliculas().subscribe(peliculas => {
       this.peliculas = peliculas;
-
-      // for (let director of this.directores) {
-      //   director.formattedBirthDate = moment(director.birthDate).format('D [de] MMMM [de] YYYY');
-      // }
     });
   }
 }

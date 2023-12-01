@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Director } from './director'; // Asegúrate de tener un modelo 'Director'
+import { Director } from './director';
 import { environment } from '../../environments/environment';
 
 @Injectable({

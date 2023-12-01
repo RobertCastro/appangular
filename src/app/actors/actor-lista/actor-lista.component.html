@@ -13,7 +13,10 @@
     <div class="col">
       <div class="d-flex flex-row justify-content-between align-items-center">
         <h1 i18n class="c-azul">Listado de actores</h1>
-        <a i18n title="Agregar director" [routerLink]="['/crear-actor']" class="link-as-button">Crear Actor</a>
+        <div>
+          <a i18n title="Agregar director" [routerLink]="['/actores/asociarpelicula']" class="link-as-button">Asocial actor con película</a>
+          <a i18n title="Agregar director" [routerLink]="['/crear-actor']" class="link-as-button mx-4 ">Crear Actor</a>
+        </div>
       </div>
     </div>
   </div>

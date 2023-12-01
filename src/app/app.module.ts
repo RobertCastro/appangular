@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { PlataformaModule } from './plataforma/plataforma.module';
 import { PlataformaAsociarPeliculaModule } from './plataforma/plataforma-asociar-pelicula/plataforma-asociar-pelicula.module';
 import { PeliculaListaModule } from './pelicula/pelicula-lista/pelicula-lista.module';
+import { ActorPeliculaModule } from './actors/actor-pelicula/actor-pelicula.module';
 
 import { HttpErrorInterceptorService } from './interceptors/http-error-interceptor.service';
 import { ToastrModule } from 'ngx-toastr';
@@ -50,7 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    PeliculaListaModule
+    PeliculaListaModule,
+    ActorPeliculaModule
   ],
   providers: [
     {

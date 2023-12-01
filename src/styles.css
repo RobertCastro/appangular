@@ -168,7 +168,7 @@ body, html{
   border-color: var(--color-boton-hover);
   text-decoration: none;
 }
-main input{
+main input, main select{
   height: 60px;
   border: 2px solid var(--turquesa) !important;
   margin-bottom: 2rem;
