@@ -4,6 +4,8 @@ import { ActorService } from '../actor.service';
 import { PeliculaService } from '../../pelicula/pelicula.service';
 import { Actor } from '../actor';
 import { Movie } from '../../pelicula/pelicula';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-actor-asociar-pelicula',
@@ -18,17 +20,23 @@ export class ActorAsociarPeliculaComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private actorService: ActorService,
-    private peliculaService: PeliculaService
+    private peliculaService: PeliculaService,
+    private toastrService: ToastrService,
+    private router: Router
   ) { }
+
+
 
   asociarActorPelicula(idActor: string, idPelicula: string) {
     if (idActor && idPelicula) {
       this.actorService.asociarActorPelicula(idPelicula, idActor).subscribe({
         next: (response) => {
+          this.toastrService.success('Actor asociado con éxito a la película', 'Éxito');
+          this.router.navigate(['/actores']);
           console.log(response);
         },
         error: (error) => {
-          console.error(error);
+          this.toastrService.error('Error al asociar el actor con la película', 'Error');
         }
       });
     } else {

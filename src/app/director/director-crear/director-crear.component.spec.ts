@@ -1,28 +1,32 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { DirectorCrearComponent } from './director-crear.component';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { DirectorService } from '../director.service';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 describe('DirectorCrearComponent', () => {
   let component: DirectorCrearComponent;
   let fixture: ComponentFixture<DirectorCrearComponent>;
   let directorServiceMock: any;
   let routerMock: any;
+  let toastrServiceMock: any;
 
   beforeEach(async () => {
     directorServiceMock = jasmine.createSpyObj('DirectorService', ['crearDirector']);
-    directorServiceMock.crearDirector.and.returnValue(of({})); // Simular una respuesta Observable
+    directorServiceMock.crearDirector.and.returnValue(of({}));
     routerMock = jasmine.createSpyObj('Router', ['navigate']);
+    toastrServiceMock = jasmine.createSpyObj('ToastrService', ['success', 'error']);
 
     await TestBed.configureTestingModule({
       declarations: [ DirectorCrearComponent ],
-      imports: [ ReactiveFormsModule ],
+      imports: [ ReactiveFormsModule, ToastrModule.forRoot() ],
       providers: [
         FormBuilder,
         { provide: DirectorService, useValue: directorServiceMock },
-        { provide: Router, useValue: routerMock }
+        { provide: Router, useValue: routerMock },
+        { provide: ToastrService, useValue: toastrServiceMock }
       ]
     }).compileComponents();
   });
@@ -30,6 +34,7 @@ describe('DirectorCrearComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DirectorCrearComponent);
     component = fixture.componentInstance;
+    toastrServiceMock = TestBed.inject(ToastrService);
     fixture.detectChanges();
   });
 

@@ -5,26 +5,26 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/" class="c-azul-oscuro" tabindex="0" i18n>Inicio</a></li>
           <li class="breadcrumb-item"> <a href="/actores" class="c-azul-oscuro" tabindex="0" i18n>Actores</a></li>
-          <li i18n class="breadcrumb-item active" aria-current="page">Asociar actor con película</li>
+          <li i18n class="breadcrumb-item active" aria-current="page">Asociar Actor con Película</li>
         </ol>
       </nav>
     </div>
     <div class="col-12">
-      <h1>Asociar Actor con Película</h1>
+      <h1 i18n>Asociar Actor con Película</h1>
       <form [formGroup]="asociarForm" (ngSubmit)="asociarActorPelicula(asociarForm.value.actor, asociarForm.value.pelicula)">
         <div class="form-group">
-          <label for="actor">Actor:</label>
-          <select class="form-control" id="actor" formControlName="actor">
+          <label i18n for="actor">Actor:</label>
+          <select class="form-control" id="actor" formControlName="actor" data-test-id="actor">
             <option *ngFor="let actor of actores" [value]="actor.id">{{ actor.name }}</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="pelicula">Película:</label>
-          <select class="form-control" id="pelicula" formControlName="pelicula">
+          <label i18n for="pelicula">Película:</label>
+          <select class="form-control" id="pelicula" formControlName="pelicula" data-test-id="pelicula">
             <option *ngFor="let pelicula of peliculas" [value]="pelicula.id">{{ pelicula.title }}</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary my-5" [disabled]="!asociarForm.valid">Asociar</button>
+        <button i18n type="submit" class="btn btn-primary my-5" [disabled]="!asociarForm.valid" data-test-id="asociar">Asociar</button>
       </form>
     </div>
   </div>

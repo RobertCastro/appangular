@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { DirectorService } from '../director.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-director-crear',
@@ -13,26 +14,24 @@ export class DirectorCrearComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private directorService: DirectorService, // Cambia el servicio a DirectorService
-    private router: Router
+    private directorService: DirectorService,
+    private router: Router,
+    private toastrService: ToastrService,
   ) { }
 
   enviarDatos() {
     if (this.directorForm.valid) {
       const datosDirector = {
         ...this.directorForm.value,
-        // Formatear de datos
       };
 
       this.directorService.crearDirector(datosDirector).subscribe({
         next: (res) => {
-          // Manejo de la respuesta
-          console.log('Director creado con éxito', res);
+          this.toastrService.success('Director creado con éxito', 'Éxito');
           this.router.navigate(['/directores']);
         },
         error: (err) => {
-          // Manejo de errores
-          console.error('Error al crear director', err);
+          this.toastrService.error('Error al crear el director', 'Error');
         }
       });
     } else {
